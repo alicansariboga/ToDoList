@@ -3,6 +3,13 @@
 ###############################################################################
 * text=auto
 
+# Files that should be in the project but are not very important
+
+*.html linguist-detectable=false
+*.scss linguist-detectable=false
+*.css linguist-detectable=false
+*.js linguist-detectable=false
+
 ###############################################################################
 # Set default behavior for command prompt diff.
 #
