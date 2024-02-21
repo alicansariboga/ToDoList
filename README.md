@@ -6,7 +6,8 @@
 - This project consists of a single page, but I am thinking of integrating a calendar in the future at the right time.
 
 #### Screenshot of the project
-![todo_list_screenshot](https://github.com/alicansariboga/ToDoList/assets/23722313/6304a88d-88de-45f2-a3f8-3b089b07305d)
+![Screenshot ](https://github.com/alicansariboga/ToDoList/assets/23722313/943b4da0-80aa-4030-baa3-daf5ea28046b)
+
 
 After adding your own SQL server connection to the BaseDbContex file in the data, you can use the project with the add-migration "migration_name" and update-migration commands.
 I wish everyone good luck.
