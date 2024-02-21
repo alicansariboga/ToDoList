@@ -9,7 +9,7 @@ namespace ToDoList.Data
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(connectionString: @"Server=DESKTOP-4M0OQRD\SQLEXPRESS;Database=ToDoList;User Id=pixxaer;Password=453885;Encrypt=false;TrustServerCertificate=true;");
+            optionsBuilder.UseSqlServer(connectionString: @"Server=YOUR_DATABASE_CONNECTION");
         }
 
         public DbSet<ToDoItem> ToDoItems { get; set; }
