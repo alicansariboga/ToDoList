@@ -23,6 +23,13 @@ namespace ToDoList.Controllers
                 .ToList(); // include to get priority name
             var priorities = _context.Priorities.ToList();
 
+            var isNotDeletedCount = _context.ToDoItems.Count(x => !x.IsDeleted);
+            var isDoneCount = _context.ToDoItems.Count(x => x.IsDone && !x.IsDeleted);
+
+            ViewBag.Persentage = (double)isDoneCount / isNotDeletedCount * 100;
+
+
+
             var viewModel = new ToDoViewModel
             {
                 ToDoItems = todoItems,
@@ -49,15 +56,15 @@ namespace ToDoList.Controllers
         [HttpPost]
         public IActionResult SoftDelete(int id, DateTime deleteDate)
         {
-            var todoItem = _context.ToDoItems.FirstOrDefault(x=>x.ItemID == id);
-            if(todoItem == null)
+            var todoItem = _context.ToDoItems.FirstOrDefault(x => x.ItemID == id);
+            if (todoItem == null)
             {
                 return View("Error");
                 //return NotFound();
             }
 
             todoItem.IsDeleted = true;
-            todoItem.DeleteDate= DateTime.Now;
+            todoItem.DeleteDate = DateTime.Now;
 
             _context.SaveChanges();
 
