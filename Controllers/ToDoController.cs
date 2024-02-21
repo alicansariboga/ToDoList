@@ -26,9 +26,8 @@ namespace ToDoList.Controllers
             var isNotDeletedCount = _context.ToDoItems.Count(x => !x.IsDeleted);
             var isDoneCount = _context.ToDoItems.Count(x => x.IsDone && !x.IsDeleted);
 
-            ViewBag.Persentage = (double)isDoneCount / isNotDeletedCount * 100;
-
-
+            // ViewBag.Persentage = ((double)isDoneCount / isNotDeletedCount * 100).ToString("N1"); // virgulden sonra 1 basamak.
+            ViewBag.Persentage = ((double)isDoneCount / isNotDeletedCount * 100).ToString("F0"); // virgulden sonra basamak yok.
 
             var viewModel = new ToDoViewModel
             {
