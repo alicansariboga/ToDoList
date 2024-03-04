@@ -81,7 +81,6 @@
                                         <th scope="col">Task</th>
                                         <th scope="col">Priority</th>
                                         <th scope="col">Create Date</th>
-                                        <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -111,26 +110,10 @@
                                             <td class="border-0 align-middle fw-bold">
                                                 @todolist.CreateDate.ToShortDateString()
                                             </td>
-                                            <td rowspan="2" class="border-0 align-middle">
-                                                <div class="text-center mb-2">
-                                                    <form method="post" action="/ToDo/Complete/@todolist.ItemID">
-                                                        <button type="submit" class="btn btn-bold btn-outline-success" data-mdb-toggle="tooltip" title="Complete">
-                                                            <i class="fas fa-check fa-lg text-white me-3"></i>
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                                <div class="text-center mb-2">
-                                                    <button class="btn btn-bold btn-outline-primary" data-mdb-toggle="tooltip" data-bs-toggle="modal" data-bs-target="#updateTaskModal" title="Edit todo" onclick="fillUpdateTaskForm(@todolist.ItemID, '@todolist.Title', '@todolist.Description', @todolist.Priority.PriorityID)">
-                                                        <i class="fas fa-pencil-alt fa-lg text-white me-3"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="text-center mb-2">
-                                                    <form method="post" action="/ToDo/SoftDelete/@todolist.ItemID">
-                                                        <button type="submit" class="btn btn-bold btn-outline-warning" data-mdb-toggle="tooltip" title="Remove">
-                                                            <i class="fas fa-trash-alt fa-lg text-white me-3"></i>
-                                                        </button>
-                                                    </form>
-                                                </div>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4" class="border-0 px-4 @if(todolist.IsDone) {<text>gradient-complete text-white</text>}">
+                                                <hr class="custom-divider">
                                             </td>
                                         </tr>
                                         <tr class="border-0 align-middle @if(todolist.IsDone) {<text>gradient-complete text-white</text>}" style="padding-left: 20px;">
@@ -142,6 +125,41 @@
                                             </td>
                                         </tr>
                                         <tr class="border-0 @if(todolist.IsDone) {<text>gradient-complete text-white</text>}">
+                                            <td rowspan="1" class="border-0 align-middle">
+                                                <div class="container d-flex justify-content-between">
+                                                    <div class="text-center mb-2">
+                                                        <form method="post" action="/ToDo/Complete/@todolist.ItemID">
+                                                            <button type="submit" class="btn btn-bold btn-outline-success" data-mdb-toggle="tooltip" title="Complete">
+                                                                <i class="fas fa-check fa-lg text-white me-3"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="text-center mb-2">
+                                                        <button class="btn btn-bold btn-outline-primary" data-mdb-toggle="tooltip" data-bs-toggle="modal" data-bs-target="#updateTaskModal" title="Edit todo" onclick="fillUpdateTaskForm(@todolist.ItemID, '@todolist.Title', '@todolist.Description', @todolist.Priority.PriorityID)">
+                                                            <i class="fas fa-pencil-alt fa-lg text-white me-3"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="text-center mb-2">
+                                                        <form method="post" action="/ToDo/SoftDelete/@todolist.ItemID">
+                                                            <button type="submit" class="btn btn-bold btn-outline-warning" data-mdb-toggle="tooltip" title="Remove">
+                                                                <i class="fas fa-trash-alt fa-lg text-white me-3"></i>
+                                                            </button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="text-center mb-2">
+                                                        <div class="mainbox">
+                                                            <input type="checkbox" id="check">
+                                                            <label for="check"><i class="fas fa-share-alt"></i></label>
+                                                            <div class="media-icons">
+                                                                <a href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/alicansariboga" target="_blank"><i class="fab fa-facebook"></i></a>
+                                                                <a href="https://twitter.com/share?url=https://github.com/alicansariboga" target="_blank"><i class="fab fa-twitter"></i></a>
+                                                                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://github.com/alicansariboga&title=Sosyal Linkedin Icon Test&summary=Bizleri takipte kalin."><i class="fab fa-linkedin-in" target="_blank"></i></a>
+                                                                <a href="whatsapp://send?text=Sen de beni takip et. https://github.com/alicansariboga" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
                                             <td colspan="5" class="border-0" style="padding-left: 20px;">
                                                 <h5 class="mb-0 d-flex justify-content-end align-items-center">
                                                     <span class="badge
