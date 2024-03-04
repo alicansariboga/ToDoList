@@ -44,6 +44,23 @@
 
         @await RenderSectionAsync("Scripts", required: false)
 
+        <script type='text/javascript'>
+            //<![CDATA[
+            $(function () {
+                $(window).scroll(function () { if ($(this).scrollTop() > 100) { $('#UpTotop').fadeIn(); } else { $('#UpTotop').fadeOut(); } });
+                $('#UpTotop').click(function () { $('body,html').animate({ scrollTop: 0 }, 800).animate({ scrollTop: 25 }, 200).animate({ scrollTop: 0 }, 150).animate({ scrollTop: 10 }, 100).animate({ scrollTop: 0 }, 50); }); var $elem = $('body');
+                $('#DownTotop').click(function () {
+                    $('html, body').animate({ scrollTop: $elem.height() }, 2000);
+                    $('#DownTotop').fadeOut()
+                });
+                $('#UpTotop').click(function () {
+                    $('#DownTotop').fadeIn()
+                });
+            });
+            //]]>
+        </script>
+
+        <div id='UpTotop'><svg viewBox='0 0 24 24'><path d='M0 0h24v24H0z' fill='none' /><path d='M5 4v2h14V4H5zm0 10h4v6h6v-6h4l-7-7-7 7z' /></svg></div>
 
     </body>
 </html>
